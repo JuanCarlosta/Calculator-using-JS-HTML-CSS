@@ -1,0 +1,62 @@
+body{
+    background-color: grey;
+}
+
+.container{
+    margin-left: 40%;
+    margin-top: 100px;
+    border: 3px solid;
+    border-radius: 15px;
+    padding: 25px 30px;
+    width: 240px;
+    height: 370px;
+    font-size: 40px;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: black;
+    color: white;
+    border-color: black;
+    box-shadow: 15px 15px 20px black;
+}
+.calc_btn{
+    border-radius: 50px;
+    border: 1px solid;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    padding: 5px 9px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(71, 69, 69);
+    color: white;
+    border-color: rgb(71, 69, 69);
+    display: inline;
+}
+.calc_btn:hover{
+    background-color: grey;
+}
+.calc_btn:last-child{
+    background-color: orange;
+}
+.calc_btn:last-child:hover{
+    background-color: rgb(235, 179, 76);
+}
+
+.screen{
+    text-align: right;
+    padding: 5px;
+    font-family: inherit;
+    font-size: 45px;
+    border: 1px solid;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.calc_btn_row{
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+
+.pressed{
+    background-color: white;
+    color: orange;
+}
