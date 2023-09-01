@@ -2,7 +2,7 @@ let buffer = '0';
 let runningTotal = 0;
 let previousOperator = undefined;
 let containDot = false;
-let conrainMinus = false;
+let isNegative = false;
 
 
 const screen = document.querySelector('.screen');
@@ -20,19 +20,29 @@ function buttonClick(value){
 
 function handleButtonClick(symbol){
     switch(symbol){
+        case '+-':
+            isNegative = !isNegative;
+            if(isNegative){
+                buffer = '-' + buffer;
+            }
+            else{
+                buffer = buffer.replace('-', '');
+            }
+            break;
+        case '.':
+            containDot = !containDot;
+            if(containDot){
+                buffer = buffer + '.';
+            }
+            else{
+                buffer = buffer.replace('.', '');
+            }
+            break;
         case 'A':
             clearBuffer();
             break;
         case '=':
             if(previousOperator == null){
-                return;
-            }
-            if(previousOperator.includes('.') && symbol == '.'){
-                symbol.apendNumber('.');
-                return;
-            }
-            if(previousOperator.includes('+-') && symbol == '+-'){
-                symbol.apendNumber('-');
                 return;
             }
             mathOperator(parseFloat(buffer));
