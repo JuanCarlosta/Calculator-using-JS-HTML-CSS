@@ -60,7 +60,7 @@ body{
     width: 120px;
 }
 
-.pressed{
+.operator_btn.pressed{
     background-color: white;
     color: orange;
 }

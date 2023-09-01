@@ -3,10 +3,12 @@ let runningTotal = 0;
 let previousOperator = undefined;
 let containDot = false;
 let isNegative = false;
+let isOperatorPressed = false;
 
 
 const screen = document.querySelector('.screen');
 const all_buttons = document.querySelectorAll('.calc_btns .calc_btn');
+const operator_btn = document.querySelectorAll('.operator_btn');
 
 function buttonClick(value){
     if(isNaN(value)){
@@ -70,8 +72,23 @@ function init(){
         let button = all_buttons[i];
         button.addEventListener('click', function (evt){
             handleButtonClick(evt.target.textContent.trim());
+            operator_btn.forEach(operator => {
+                operator.classList.remove('pressed');
+            })
         })
     }
+
+    operator_btn.forEach(button => {
+        button.addEventListener('click', () =>{
+            isOperatorPressed = !isOperatorPressed;
+            if(isOperatorPressed){
+                button.classList.add('pressed');
+            }
+            else{
+                button.classList.remove('pressed');
+            }
+        })
+    })
 }
 init();
 
@@ -129,6 +146,10 @@ function clearBuffer(){
     buffer = '0';
     runningTotal = 0;
     previousOperator = undefined;
+    isOperatorPressed = false;
+    operator_btn.forEach(operator => {
+        operator.classList.remove('pressed');
+    })
 }
 
 function updateScreen(){
